@@ -118,16 +118,22 @@ function fill(){
         nodes[i].style.backgroundColor = colorSelected
     }
 }
-
+//Clears grid
 function clearAll(){
    let grid = document.getElementById("grid");
    grid.innerHTML = ""
    numRows = 0
    numCols = 0
 }
-
+//Fills all uncolored tiles
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    let nodes = document.getElementsByTagName("td")
+    colorSelected = document.getElementById("selectedID").value;
+    for (let i = 0; i < nodes.length; i++) {
+        if (nodes[i].style.backgroundColor === "") {
+            nodes[i].style.backgroundColor = colorSelected
+        }
+    }
 }
 
  
