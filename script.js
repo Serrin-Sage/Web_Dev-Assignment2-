@@ -1,0 +1,109 @@
+let numRows = 0;
+let numCols = 0;
+let colorSelected; 
+
+//Add a row
+function addR() {
+    let grid = document.getElementById("grid");
+
+    console.log(numRows)
+
+    if (numRows === 0) {
+        let row = document.createElement("tr");
+        let col = document.createElement("td");
+        col.onclick = function () {
+            this.style.backgroundColor = colorSelected
+            console.log(colorSelected)
+        };
+        row.appendChild(col);
+        grid.append(row);
+        numRows++
+        numCols++
+    }
+
+    else {
+        let row = document.createElement("tr")
+        for (let i = 0; i < numCols; i++) {
+            let col = document.createElement("td")
+            col.onclick = function () {
+                this.style.backgroundColor = colorSelected
+                console.log(colorSelected)
+            };
+            row.appendChild(col);
+        }
+        grid.append(row);
+        numRows++;
+    }
+}
+
+//Add a column
+function addC() {
+    let grid = document.getElementById("grid");
+
+    console.log(numCols);
+
+    if (numRows === 0) {
+        let row = document.createElement("tr");
+        let col = document.createElement("td");
+        col.onclick = function () {
+            this.style.backgroundColor = colorSelected
+            console.log(colorSelected)
+        };
+        row.appendChild(col);
+        grid.append(row);
+        numRows++
+        numCols++
+    }
+
+    else {
+        let rows = document.getElementsByTagName("tr");
+        for (let i = 0; i < rows.length; i++) {
+            let node = document.createElement("td");
+            node.onclick = function () {
+                this.style.backgroundColor = colorSelected
+                console.log(colorSelected)
+            };
+            rows[i].append(node);
+        }
+        numCols++
+    }
+}
+
+//Remove a row
+function removeR() {
+    let grid = document.getElementById("grid")
+    let rows = document.getElementById("tr")
+    
+    let row = document.createElement("tr")
+    grid.remove(row)
+}
+//Remove a column
+function removeC() {
+    alert("Clicked Remove Col")
+}
+//sets global var for selected color
+function selected(){
+    colorSelected = document.getElementById("selectedID").value;
+    console.log(colorSelected);
+}
+//Fills all cells with selected color
+function fill(){
+    let nodes = document.getElementsByTagName("td")
+    colorSelected = document.getElementById("selectedID").value;
+    for (let i =0; i < nodes.length; i++){
+        nodes[i].style.backgroundColor = colorSelected
+    }
+}
+
+function clearAll(){
+   let grid = document.getElementById("grid");
+   grid.innerHTML = ""
+   numRows = 0
+   numCols = 0
+}
+
+function fillU(){
+    alert("Clicked Fill All Uncolored")
+}
+
+ 
