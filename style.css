@@ -8,6 +8,10 @@ td{
     background-color: white;
 }
 
+td:hover {
+    background-color: rgb(235, 232, 232);
+}
+
 .top-container {
     padding: 1rem;
     /* display: flex;
@@ -17,10 +21,19 @@ td{
     align-items: center; */
 }
 
-td:hover {
-    background-color: rgb(235, 232, 232);
-}
+
 
 #grid {
     padding: 1rem;
+}
+
+.button {
+    border-radius: 8px;
+    font-size: 14px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(209, 209, 209);
 }
