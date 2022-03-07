@@ -88,7 +88,22 @@ function removeR() {
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    if (numCols !== 0) {
+        if (numCols === 1) {
+            let grid = document.getElementById("grid")
+            grid.innerHTML = ""
+            numRows = 0
+            numCols = 0
+            return
+        }
+
+        let rows = document.getElementsByTagName("tr")
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].removeChild(rows[i].lastChild)
+        }
+        numCols--
+    }
+    console.log(numCols)
 }
 //sets global var for selected color
 function selected(){
