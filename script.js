@@ -71,15 +71,39 @@ function addC() {
 
 //Remove a row
 function removeR() {
-    let grid = document.getElementById("grid")
-    let rows = document.getElementById("tr")
-    
-    let row = document.createElement("tr")
-    grid.remove(row)
+    if (numRows !== 0 ){
+        if (numRows === 1) {
+            let grid = document.getElementById("grid")
+            grid.innerHTML = ""
+            numRows = 0
+            numCols = 0
+            return
+        }
+
+        let rows = document.getElementsByTagName("tr")
+        rows[rows.length - 1].remove()
+        numRows--
+    }
+    console.log(numRows)
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    if (numCols !== 0) {
+        if (numCols === 1) {
+            let grid = document.getElementById("grid")
+            grid.innerHTML = ""
+            numRows = 0
+            numCols = 0
+            return
+        }
+
+        let rows = document.getElementsByTagName("tr")
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].removeChild(rows[i].lastChild)
+        }
+        numCols--
+    }
+    console.log(numCols)
 }
 //sets global var for selected color
 function selected(){
